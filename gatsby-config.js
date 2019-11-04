@@ -1,14 +1,14 @@
 const lost = require('lost');
 const pxtorem = require('postcss-pxtorem');
 
-const url = 'https://shaneoneill.io';
+const url = 'https://johnmascioli.com';
 
 module.exports = {
   siteMetadata: {
     url,
     siteUrl: url,
-    title: 'Zeevo | shaneoneill.io',
-    subtitle: 'Hack the planet.',
+    title: 'johnmascioli.com',
+    subtitle: '',
     copyright: '© All rights reserved.',
     profilePic: './src/pages/photo.jpg',
     menu: [
@@ -40,7 +40,6 @@ module.exports = {
     author: {
       name: "Shane O'Neill",
       twitter: 'https://twitter.com/zeevosec',
-      github: 'https://github.com/zeevosec',
       rss: '/rss.xml',
     },
   },
@@ -164,7 +163,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-google-analytics',
-      options: { trackingId: 'UA-104714715-3' },
+      options: { trackingId: '' },
     },
     {
       resolve: 'gatsby-plugin-google-fonts',

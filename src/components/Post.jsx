@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import moment from 'moment';
-import './style/post.scss';
+// import './style/post.scss';
 
 class Post extends React.Component {
   render() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import './style/menu.scss';
+// import './style/menu.scss';
 
 const isExternal = path => path.startsWith('http');
 class Menu extends React.Component {

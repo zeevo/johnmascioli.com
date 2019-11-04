@@ -1,7 +1,7 @@
 {
   "version": "3.0.0",
   "name": "shaneoneill.io",
-  "description": "Simple starter for Gatsby",
+  "description": "A Gatsby blog",
   "main": "n/a",
   "scripts": {
     "develop": "gatsby develop",
@@ -15,7 +15,7 @@
     "deploy": "npm run build && npm run deploy-s3",
     "prettier": "prettier --check '{,!(node_modules|assets)/**/}*.js*'"
   },
-  "repository": "git+https://github.com/zeevosec/shaneoneill.io",
+  "repository": "git+https://github.com/zeevosec/johnmascioli.io",
   "keywords": [
     "gatsby",
     "blog",
@@ -23,7 +23,7 @@
     "theme",
     "starter"
   ],
-  "author": "Alexander Shelepenok <alxshelepenok@gmail.com>",
+  "author": "Shane O'Neill <oneill.shane.h@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "bluebird": "^3.5.1",

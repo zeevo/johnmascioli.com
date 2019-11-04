@@ -2,7 +2,7 @@ import React from 'react';
 import get from 'lodash/get';
 import { Link } from 'gatsby';
 import Menu from './Menu';
-import './style/sidebar.scss';
+// import './style/sidebar.scss';
 import profilePic from '../pages/photo.png';
 
 class Sidebar extends React.Component {

@@ -57,7 +57,6 @@ export const pageQuery = graphql`
         author {
           name
           twitter
-          github
           rss
         }
       }

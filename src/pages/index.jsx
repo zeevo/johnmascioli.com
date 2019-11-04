@@ -2,15 +2,13 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import Sidebar from '../components/Sidebar';
-import Feed from '../components/Feed';
+import Blog from '../components/Blog';
 
 import '../assets/css/font-awesome.min.css';
 
 class IndexRoute extends React.Component {
   render() {
     const { title, subtitle } = this.props.data.site.siteMetadata;
-    const posts = this.props.data.allMarkdownRemark.edges;
 
     return (
       <Layout>
@@ -20,10 +18,7 @@ class IndexRoute extends React.Component {
             <meta name="description" content={subtitle} />
           </Helmet>
           <div />
-          <Sidebar {...this.props} />
-          <div className="content">
-            <Feed posts={posts} />
-          </div>
+          <Blog {...this.props} />
         </div>
       </Layout>
     );
@@ -47,7 +42,6 @@ export const pageQuery = graphql`
         author {
           name
           twitter
-          github
           rss
         }
       }

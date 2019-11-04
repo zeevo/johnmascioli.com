@@ -1,27 +1,16 @@
 import React from 'react';
-import Sidebar from './Sidebar';
-import './style/pagetemplatedetails.scss';
+import Header from './Header';
+// import './style/pagetemplatedetails.scss';
 
 class PageTemplateDetails extends React.Component {
   render() {
     const page = this.props.data.markdownRemark;
-
+    const { title } = page.frontmatter;
+    const { html } = page;
     return (
-      <div>
-        <Sidebar {...this.props} />
-        <div className="content">
-          <div className="content__inner">
-            <div className="page">
-              <h1 className="page__title">{page.frontmatter.title}</h1>
-              <div
-                className="page__body"
-                /* eslint-disable-next-line react/no-danger */
-                dangerouslySetInnerHTML={{ __html: page.html }}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+      <article class="post">
+        <section class="longform drop container container--narrow">test</section>
+      </article>
     );
   }
 }
