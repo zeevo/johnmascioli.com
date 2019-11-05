@@ -6,7 +6,6 @@
     "graphql": true
   },
   "rules": {
-    "arrow-body-style": ["error", "as-needed", { "requireReturnForObjectLiteral": true }],
     "arrow-parens": ["error", "as-needed"],
     "comma-dangle": ["error", "always-multiline"],
     "function-paren-newline": "off",

@@ -6,6 +6,9 @@ const Navbar = () => {
       <a href="/" class="header__logo"></a>
       <ul>
         <li class="header__item">
+          <a href="/" class="header__item__link fade hide-mobile">
+            Home
+          </a>
           <a href="/about/" class="header__item__link fade hide-mobile">
             About
           </a>

@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import CategoryTemplateDetails from '../components/CategoryTemplateDetails';
+import Header from '../components/Header';
 
 class CategoryTemplate extends React.Component {
   render() {
@@ -12,11 +13,8 @@ class CategoryTemplate extends React.Component {
 
     return (
       <Layout>
-        <div>
-          <Helmet title={`${category} - ${title}`} />
-          <Sidebar {...this.props} />
-          <CategoryTemplateDetails {...this.props} />
-        </div>
+        <Header>test</Header>
+        <div>test</div>
       </Layout>
     );
   }

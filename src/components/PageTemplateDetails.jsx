@@ -8,9 +8,19 @@ class PageTemplateDetails extends React.Component {
     const { title } = page.frontmatter;
     const { html } = page;
     return (
-      <article class="post">
-        <section class="longform drop container container--narrow">test</section>
-      </article>
+      <React.Fragment>
+        <Header title="About"></Header>
+        <article className="post">
+          <section className="longform drop container container--narrow">
+            <p></p>
+            <div
+              className="page__body"
+              /* eslint-disable-next-line react/no-danger */
+              dangerouslySetInnerHTML={{ __html: page.html }}
+            />
+          </section>
+        </article>
+      </React.Fragment>
     );
   }
 }
