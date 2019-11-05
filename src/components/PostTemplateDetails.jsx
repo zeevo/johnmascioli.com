@@ -1,22 +1,16 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import Header from './Header';
 import moment from 'moment';
 import './style/posttemplatedetails.scss';
 
 class PostTemplateDetails extends React.Component {
   render() {
-    const { subtitle, author } = this.props.data.site.siteMetadata;
+    const { subtitle, author, title } = this.props.data.site.siteMetadata;
     const post = this.props.data.markdownRemark;
     const tags = post.fields.tagSlugs;
 
-    const homeBlock = (
-      <div>
-        <Link className="post-single__home-button" to="/">
-          All Articles
-        </Link>
-      </div>
-    );
-
+    console.log(post);
     const tagsBlock = (
       <div className="post-single__tags">
         <ul className="post-single__tags-list">
@@ -33,32 +27,19 @@ class PostTemplateDetails extends React.Component {
     );
 
     return (
-      <div>
-        {homeBlock}
-        <div className="post-single">
-          <div className="post-single__inner">
-            <h1 className="post-single__title">{post.frontmatter.title}</h1>
+      <React.Fragment>
+        <Header title={title}></Header>
+        <article className="post">
+          <section className="longform drop container container--narrow">
+            <p></p>
             <div
-              className="post-single__body"
+              className="page__body"
               /* eslint-disable-next-line react/no-danger */
-              dangerouslySetInnerHTML={{ __html: post.html }}
+              dangerouslySetInnerHTML={{ __html: html }}
             />
-            <div className="post-single__date">
-              <em>Published {moment(post.frontmatter.date).format('D MMM YYYY')}</em>
-            </div>
-          </div>
-          <div className="post-single__footer">
-            {tagsBlock}
-            <hr />
-            <p className="post-single__footer-text">
-              {subtitle}
-              <a href={author.twitter} target="_blank" rel="noopener noreferrer">
-                <br /> <strong>{author.twitter.split('/').pop()}</strong> on Twitter
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
+          </section>
+        </article>
+      </React.Fragment>
     );
   }
 }

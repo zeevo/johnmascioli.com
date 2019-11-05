@@ -4,7 +4,7 @@ import React from 'react';
 const Filter = ({ topic }) => {
   return (
     <li className="header__tab">
-      <a href={`/categories/${topic}`} className="header__tab__link faded faded--60">
+      <a href={`/categories/${topic.toLowerCase()}`} className="header__tab__link faded faded--60">
         {topic}
       </a>
     </li>
@@ -12,7 +12,9 @@ const Filter = ({ topic }) => {
 };
 
 export default function Blog(props) {
-  const topics = ['stocks', 'thing2', 'otherthing'];
+  const categories = props.data.allMarkdownRemark.edges.map(edge => {
+    return edge.node.frontmatter.category;
+  });
 
   console.log(props);
   return (
@@ -21,7 +23,7 @@ export default function Blog(props) {
         <div className="header__tabs-wrap">
           <div className="container container--narrow">
             <ul className="header__tabs">
-              {topics.map(topic => (
+              {categories.map(topic => (
                 <Filter key={topic} topic={topic} />
               ))}
             </ul>
@@ -35,7 +37,7 @@ export default function Blog(props) {
               <a href="/blog/the-spectrum-of-wealth/">Lorem ipsum dolor sit amet, </a>
             </h2>
             <small className="post__meta">
-              <time datetime="2019-10-30T14:39:00-04:00" className="faded">
+              <time dateTime="2019-10-30T14:39:00-04:00" className="faded">
                 Oct 30, 2019
               </time>
             </small>
@@ -53,7 +55,7 @@ export default function Blog(props) {
           <a href="/blog/the-spectrum-of-wealth/" className="button faded">
             Read more
           </a>
-        </article>{' '}
+        </article>
       </main>
     </React.Fragment>
   );

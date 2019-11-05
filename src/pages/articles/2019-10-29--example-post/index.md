@@ -5,6 +5,7 @@ layout: post
 draft: false
 path: '/2019/10/20/example-post/'
 category: 'Featured'
+tags:
   - 'Stocks'
   - 'Misc'
 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'

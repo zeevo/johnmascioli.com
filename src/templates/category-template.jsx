@@ -13,8 +13,13 @@ class CategoryTemplate extends React.Component {
 
     return (
       <Layout>
-        <Header>test</Header>
-        <div>test</div>
+        <div>
+          <Helmet>
+            <title>{`${category} - ${title}`}</title>
+            <meta name="description" content={'place holder description'} />
+          </Helmet>
+          <CategoryTemplateDetails {...this.props} />
+        </div>
       </Layout>
     );
   }

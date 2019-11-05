@@ -6,12 +6,12 @@ export default class Header extends Component {
     const { title } = this.props;
     return (
       <header
-        class="header header--cover bg-purple"
+        className="header header--cover bg-purple"
         // style=/* TODO background image here
       >
         <Navbar />
 
-        <section class="header__header container">
+        <section className="header__header container">
           <h1>{title}</h1>
         </section>
 
