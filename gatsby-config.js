@@ -205,7 +205,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-s3',
       options: {
-        bucketName: 'shaneoneill.io',
+        bucketName: 'zeevo-playground.com',
       },
     },
   ],
