@@ -37,11 +37,11 @@ export const pageQuery = graphql`
         menu {
           label
           path
+          external
         }
         author {
           name
           twitter
-          rss
         }
       }
     }
@@ -52,6 +52,9 @@ export const pageQuery = graphql`
         title
         date
         description
+        background {
+          publicURL
+        }
       }
     }
   }

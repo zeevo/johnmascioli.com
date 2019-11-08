@@ -1,13 +1,12 @@
 ---
-title: Example Featured Post
+title: Example Favorite Post
 date: '2019-10-30T16:51:00.000Z'
 layout: post
 draft: false
 path: '/2019/10/20/example-post/'
-category: 'Featured'
+category: 'Favorites'
 tags:
-  - 'Stocks'
-  - 'Misc'
+  - 'Memes'
 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 ---
 

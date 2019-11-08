@@ -38,11 +38,11 @@ export const pageQuery = graphql`
         menu {
           label
           path
+          external
         }
         author {
           name
           twitter
-          rss
         }
       }
     }

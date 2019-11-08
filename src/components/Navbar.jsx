@@ -1,18 +1,26 @@
 import React from 'react';
+import { Link } from 'gatsby';
 
-const Navbar = () => {
+const Navbar = props => {
   return (
     <nav className="header__nav text-right container">
-      <a href="/" className="header__logo"></a>
+      <Link to="/" className="header__logo"></Link>
       <ul>
-        <li className="header__item">
-          <a href="/" className="header__item__link fade hide-mobile">
-            Home
-          </a>
-          <a href="/about/" className="header__item__link fade hide-mobile">
-            About
-          </a>
-        </li>
+        {props.menu.reverse().map((item, i) => {
+          if (item.external) {
+            return (
+              <a key={i} href="https://twitter.com/john_mascioli" className="header__item__link fade hide-mobile">
+                {item.label}
+              </a>
+            );
+          } else {
+            return (
+              <Link key={i} to={item.path} className="header__item__link fade hide-mobile">
+                {item.label}
+              </Link>
+            );
+          }
+        })}
       </ul>
     </nav>
   );

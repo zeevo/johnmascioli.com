@@ -10,34 +10,15 @@ class PostTemplateDetails extends React.Component {
     const post = this.props.data.markdownRemark;
     const tags = post.fields.tagSlugs;
 
-    console.log(post);
-    const tagsBlock = (
-      <div className="post-single__tags">
-        <ul className="post-single__tags-list">
-          {tags &&
-            tags.map((tag, i) => (
-              <li className="post-single__tags-list-item" key={tag}>
-                <Link to={tag} className="post-single__tags-list-item-link">
-                  {post.frontmatter.tags[i]}
-                </Link>
-              </li>
-            ))}
-        </ul>
-      </div>
-    );
-
     return (
       <React.Fragment>
-        <Header title={title}></Header>
+        <Header title={post.frontmatter.title} {...this.props}></Header>
         <article className="post">
-          <section className="longform drop container container--narrow">
-            <p></p>
-            <div
-              className="page__body"
-              /* eslint-disable-next-line react/no-danger */
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
-          </section>
+          <section
+            className="longform drop container container--narrow"
+            dangerouslySetInnerHTML={{ __html: post.html + '<hr />' }}
+          ></section>
+          <div className="container container--narrow"></div>
         </article>
       </React.Fragment>
     );

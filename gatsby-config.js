@@ -13,34 +13,24 @@ module.exports = {
     profilePic: './src/pages/photo.jpg',
     menu: [
       {
-        label: 'Posts',
+        label: 'Home',
         path: '/',
+        external: false,
       },
       {
         label: 'About',
         path: '/about/',
-      },
-      {
-        label: 'Projects',
-        path: '/projects/',
-      },
-      {
-        label: 'Github',
-        path: 'https://github.com/zeevosec',
-      },
-      {
-        label: 'Instagram',
-        path: 'https://instagram.com/zeevosec',
+        external: false,
       },
       {
         label: 'Twitter',
-        path: 'https://twitter.com/zeevosec',
+        path: 'https://twitter.com/john_mascioli',
+        external: true,
       },
     ],
     author: {
-      name: "Shane O'Neill",
-      twitter: 'https://twitter.com/zeevosec',
-      rss: '/rss.xml',
+      name: 'John Mascioli',
+      twitter: 'https://twitter.com/john_mascioli',
     },
   },
   plugins: [

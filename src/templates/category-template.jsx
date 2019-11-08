@@ -2,9 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import Sidebar from '../components/Sidebar';
 import CategoryTemplateDetails from '../components/CategoryTemplateDetails';
-import Header from '../components/Header';
 
 class CategoryTemplate extends React.Component {
   render() {
@@ -37,11 +35,11 @@ export const pageQuery = graphql`
         menu {
           label
           path
+          external
         }
         author {
           name
           twitter
-          rss
         }
       }
     }
@@ -62,6 +60,9 @@ export const pageQuery = graphql`
             date
             category
             description
+            background {
+              publicURL
+            }
           }
         }
       }

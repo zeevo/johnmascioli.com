@@ -40,7 +40,7 @@ exports.createPages = ({ graphql, actions }) => {
           createPage({
             path: edge.node.fields.slug,
             component: slash(pageTemplate),
-            context: { slug: edge.node.fields.slug },
+            context: { slug: edge.node.fields.slug, background: edge.node.fields.background },
           });
         } else if (_.get(edge, 'node.frontmatter.layout') === 'post') {
           createPage({
