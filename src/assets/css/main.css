@@ -1601,14 +1601,6 @@ hr {
 .header--cover .header__header {
   padding-bottom: 8.333335rem;
 }
-@media only screen and (max-width: 639px) {
-  .header__header {
-    padding-top: 3.333334rem;
-  }
-  .header--cover .header__header {
-    padding-bottom: 6.666668rem;
-  }
-}
 .header--about .header__header {
   max-width: 37rem;
   text-align: left;
@@ -1646,40 +1638,6 @@ hr {
   display: inline-block;
   padding-top: 0.8333335rem;
   padding-bottom: 0.8333335rem;
-}
-#mobile-nav-open {
-  display: none;
-}
-@media only screen and (max-width: 568px) {
-  .hide-mobile {
-    display: none;
-  }
-  .header__nav {
-    padding-top: 0;
-  }
-  #mobile-nav-open {
-    display: inline-block;
-  }
-}
-.mobile-nav {
-  display: none;
-  background-color: #161616;
-  color: #fff;
-  overflow-y: scroll;
-  visibility: hidden;
-  top: -999em;
-  left: -999em;
-  height: 0;
-  width: 0;
-  opacity: 0;
-  -webkit-transition: opacity 150ms;
-  -o-transition: opacity 150ms;
-  transition: opacity 150ms;
-}
-@media only screen and (max-width: 568px) {
-  .js .mobile-nav {
-    display: block;
-  }
 }
 .is-mobile-nav-open .mobile-nav {
   height: 100%;
