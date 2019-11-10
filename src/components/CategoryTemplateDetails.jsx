@@ -23,8 +23,8 @@ const CategoryTemplateDetails = props => {
         <Categories />
       </Header>
       <main className="container container--narrow js-blog-posts">
-        {posts.map(post => {
-          return <PostPreview post={post} />;
+        {posts.map((post, i) => {
+          return <PostPreview key={i} post={post} />;
         })}
       </main>
     </React.Fragment>

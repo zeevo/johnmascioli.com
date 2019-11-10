@@ -13,9 +13,9 @@ module.exports = {
     profilePic: './src/pages/photo.jpg',
     menu: [
       {
-        label: 'Home',
-        path: '/',
-        external: false,
+        label: 'Twitter',
+        path: 'https://twitter.com/john_mascioli',
+        external: true,
       },
       {
         label: 'About',
@@ -23,9 +23,9 @@ module.exports = {
         external: false,
       },
       {
-        label: 'Twitter',
-        path: 'https://twitter.com/john_mascioli',
-        external: true,
+        label: 'Home',
+        path: '/',
+        external: false,
       },
     ],
     author: {

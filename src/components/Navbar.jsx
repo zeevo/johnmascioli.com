@@ -6,7 +6,7 @@ const Navbar = props => {
     <nav className="header__nav text-right container">
       <Link to="/" className="header__logo"></Link>
       <ul>
-        {props.menu.reverse().map((item, i) => {
+        {props.menu.map((item, i) => {
           if (item.external) {
             return (
               <a key={i} href="https://twitter.com/john_mascioli" className="header__item__link fade hide-mobile">
