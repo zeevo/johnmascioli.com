@@ -37,6 +37,7 @@ export const pageQuery = graphql`
           path
           external
         }
+        categories
         author {
           name
           twitter

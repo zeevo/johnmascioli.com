@@ -32,6 +32,7 @@ module.exports = {
       name: 'John Mascioli',
       twitter: 'https://twitter.com/john_mascioli',
     },
+    categories: ['Featured', 'Favorites'],
   },
   plugins: [
     {

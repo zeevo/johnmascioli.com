@@ -1,31 +1,21 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import Header from './Header';
 import PostPreview from './PostPreview';
 import Categories from './Categories';
-
-const Filter = ({ topic }) => {
-  return (
-    <li className="header__tab">
-      <Link to={`/categories/${topic.toLowerCase()}`} className="header__tab__link faded faded--60">
-        {topic}
-      </Link>
-    </li>
-  );
-};
+import Feed from './Feed';
 
 const CategoryTemplateDetails = props => {
   const { category } = props.pageContext;
-  const posts = props.data.allMarkdownRemark.edges;
+  const { edges } = props.data.allMarkdownRemark;
+  const { categories } = props.data.site.siteMetadata;
+
   return (
     <React.Fragment>
       <Header title={category} {...props}>
-        <Categories />
+        <Categories categories={categories} />
       </Header>
-      <main className="container container--narrow js-blog-posts">
-        {posts.map((post, i) => {
-          return <PostPreview key={i} post={post} />;
-        })}
+      <main className="container container--narrow">
+        <Feed posts={edges} />
       </main>
     </React.Fragment>
   );

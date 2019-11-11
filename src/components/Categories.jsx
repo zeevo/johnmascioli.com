@@ -11,8 +11,8 @@ const Filter = ({ topic }) => {
   );
 };
 
-const Categories = () => {
-  const categories = ['featured', 'favorites'];
+const Categories = props => {
+  const { categories } = props;
   return (
     <div className="header__tabs-wrap">
       <div className="container container--narrow">
