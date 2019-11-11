@@ -5,7 +5,6 @@ import defaultBackground from '../../static/background.jpg';
 
 export default function Header(props) {
   const { title } = props;
-  console.log(props);
 
   const frontmatter = props.data.markdownRemark ? props.data.markdownRemark.frontmatter : null;
   const background = props.background || defaultBackground;
@@ -17,7 +16,7 @@ export default function Header(props) {
       <Navbar {...props.data.site.siteMetadata} />
       <section className="header__header container">
         <h1>{title}</h1>
-        {frontmatter ? moment(frontmatter.date).format('MMMM D, YYYY') : null}
+        {frontmatter && frontmatter.date ? moment(frontmatter.date).format('MMMM D, YYYY') : null}
       </section>
       {props.children}
     </header>

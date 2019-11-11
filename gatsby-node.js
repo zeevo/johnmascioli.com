@@ -2,6 +2,7 @@ const _ = require('lodash');
 const Promise = require('bluebird');
 const path = require('path');
 const slash = require('slash');
+const config = require('./gatsby-config');
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -49,22 +50,7 @@ exports.createPages = ({ graphql, actions }) => {
             context: { slug: edge.node.fields.slug },
           });
 
-          let tags = [];
-          if (_.get(edge, 'node.frontmatter.tags')) {
-            tags = tags.concat(edge.node.frontmatter.tags);
-          }
-
-          tags = _.uniq(tags);
-          _.each(tags, tag => {
-            const tagPath = `/tags/${_.kebabCase(tag)}/`;
-            createPage({
-              path: tagPath,
-              component: tagTemplate,
-              context: { tag },
-            });
-          });
-
-          let categories = [];
+          let categories = config.siteMetadata.categories;
           if (_.get(edge, 'node.frontmatter.category')) {
             categories = categories.concat(edge.node.frontmatter.category);
           }

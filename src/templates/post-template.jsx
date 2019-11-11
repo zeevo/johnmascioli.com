@@ -58,6 +58,9 @@ export const pageQuery = graphql`
         tags
         date
         description
+        background {
+          publicURL
+        }
       }
     }
   }
