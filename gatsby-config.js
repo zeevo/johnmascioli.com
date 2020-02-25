@@ -1,20 +1,20 @@
 const lost = require('lost');
 const pxtorem = require('postcss-pxtorem');
 
-const url = 'https://johnmascioli.com';
+const url = 'http://zeevo-playground.com.s3-website.us-east-2.amazonaws.com/';
 
 module.exports = {
   siteMetadata: {
     url,
     siteUrl: url,
-    title: 'johnmascioli.com',
+    title: "Zeevo's Starter",
     subtitle: '',
     copyright: '© All rights reserved.',
     profilePic: './src/pages/photo.jpg',
     menu: [
       {
         label: 'Twitter',
-        path: 'https://twitter.com/john_mascioli',
+        path: 'https://twitter.com/zeevosec',
         external: true,
       },
       {
@@ -29,8 +29,8 @@ module.exports = {
       },
     ],
     author: {
-      name: 'John Mascioli',
-      twitter: 'https://twitter.com/john_mascioli',
+      name: "Shane O'Neill",
+      twitter: 'https://twitter.com/zeevosec',
     },
     categories: ['Featured', 'Favorites'],
   },
@@ -94,7 +94,7 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
-            title: 'shaneoneill.io RSS Feed',
+            title: "Zeevo's Gatsby Starter RSS Feed",
           },
         ],
       },
@@ -201,12 +201,6 @@ module.exports = {
           }),
         ],
         precision: 8,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-s3',
-      options: {
-        bucketName: 'zeevo-playground.com',
       },
     },
   ],

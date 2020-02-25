@@ -39,6 +39,7 @@ export const pageQuery = graphql`
           path
           external
         }
+        categories
         author {
           name
           twitter
@@ -52,6 +53,9 @@ export const pageQuery = graphql`
         title
         date
         description
+        avatar {
+          publicURL
+        }
         background {
           publicURL
         }

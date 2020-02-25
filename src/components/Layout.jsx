@@ -1,6 +1,5 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import '../assets/fonts/fontello-771c82e0/css/fontello.css';
 import '../assets/css/main.css';
 
 class Layout extends React.Component {
@@ -9,7 +8,7 @@ class Layout extends React.Component {
 
     return (
       <div className="layout">
-        <Helmet defaultTitle="John Mascioli | johnmascioli.com" />
+        <Helmet defaultTitle="Gatsby Starter Zeevo" />
         {children}
       </div>
     );
