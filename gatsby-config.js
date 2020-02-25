@@ -59,37 +59,29 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allWordpressPost } }) =>
-              allWordPressPost.edges.map(edge =>
-                Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.frontmatter.description,
-                  date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.url + edge.node.fields.slug,
-                  guid: site.siteMetadata.url + edge.node.fields.slug,
-                  custom_elements: [{ 'content:encoded': edge.node.html }],
-                })
-              ),
+              allWordpressPost.edges.map(edge => ({
+                description: edge.node.acf.description,
+                date: edge.node.date,
+                url: site.siteMetadata.url + edge.node.slug,
+                guid: site.siteMetadata.url + edge.node.slug,
+                custom_elements: [{ 'content:encoded': edge.node.content }],
+              })),
             query: `
-              {
-                allWordpressPost(
-                  limit: 1000,
-                  sort: { order: DESC, fields: [date] },
-                  filter: { frontmatter: { layout: { eq: "post" }, draft: { ne: true } } }
-                ) {
-                  edges {
-                    node {
-                      html
-                      fields {
-                        slug
-                      }
-                      title
-                      date
-                      layout
-                      draft
+            {
+              allWordpressPost(limit: 1000, sort: {fields: date, order: DESC}) {
+                edges {
+                  node {
+                    content
+                    slug
+                    title
+                    date
+                    acf {
                       description
                     }
                   }
                 }
               }
+            }
             `,
             output: '/rss.xml',
             title: "Zeevo's Gatsby Starter RSS Feed",
