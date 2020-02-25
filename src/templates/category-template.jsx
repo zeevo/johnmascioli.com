@@ -4,29 +4,29 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import CategoryTemplateDetails from '../components/CategoryTemplateDetails';
 
-class CategoryTemplate extends React.Component {
-  render() {
-    const { title } = this.props.data.site.siteMetadata;
-    const { category } = this.props.pageContext;
+const CategoryTemplate = props => {
+  console.log(props);
+  const { data, pageContext } = props;
+  const { title } = data.site.siteMetadata;
+  const { category } = pageContext;
 
-    return (
-      <Layout>
-        <div>
-          <Helmet>
-            <title>{`${category} - ${title}`}</title>
-            <meta name="description" content={'place holder description'} />
-          </Helmet>
-          <CategoryTemplateDetails {...this.props} />
-        </div>
-      </Layout>
-    );
-  }
-}
+  return (
+    <Layout>
+      <div>
+        <Helmet>
+          <title>{`${category} - ${title}`}</title>
+          <meta name="description" content={`${title} - ${category}`} />
+        </Helmet>
+        <CategoryTemplateDetails {...props} />
+      </div>
+    </Layout>
+  );
+};
 
 export default CategoryTemplate;
 
 export const pageQuery = graphql`
-  query CategoryPage($category: String) {
+  query {
     site {
       siteMetadata {
         title
@@ -44,27 +44,33 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(
-      limit: 1000
-      filter: { frontmatter: { category: { eq: $category }, layout: { eq: "post" }, draft: { ne: true } } }
-      sort: { order: DESC, fields: [frontmatter___date] }
-    ) {
+    allWordpressPost(limit: 1000, sort: { order: DESC, fields: date }) {
       edges {
         node {
-          timeToRead
-          fields {
-            slug
-            categorySlug
+          title
+          date
+          excerpt
+          type
+          slug
+          author {
+            name
           }
-          frontmatter {
+          categories {
+            name
+          }
+          featured_media {
+            source_url
             title
-            date
-            category
-            description
-            background {
-              publicURL
-            }
           }
+        }
+      }
+    }
+    allWordpressPage {
+      edges {
+        node {
+          id
+          slug
+          title
         }
       }
     }

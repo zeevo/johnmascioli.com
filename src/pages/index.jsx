@@ -4,29 +4,28 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Blog from '../components/Blog';
 
-class IndexRoute extends React.Component {
-  render() {
-    const { title, subtitle } = this.props.data.site.siteMetadata;
+const IndexRoute = props => {
+  const { data } = props;
+  const { title, subtitle } = data.site.siteMetadata;
 
-    return (
-      <Layout>
-        <div>
-          <Helmet>
-            <title>{title}</title>
-            <meta name="description" content={subtitle} />
-          </Helmet>
-          <div />
-          <Blog {...this.props} />
-        </div>
-      </Layout>
-    );
-  }
-}
+  return (
+    <Layout>
+      <div>
+        <Helmet>
+          <title>{title}</title>
+          <meta name="description" content={subtitle} />
+        </Helmet>
+        <div />
+        <Blog {...props} />
+      </div>
+    </Layout>
+  );
+};
 
 export default IndexRoute;
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query {
     site {
       siteMetadata {
         title
@@ -45,24 +44,33 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(
-      limit: 1000
-      filter: { frontmatter: { layout: { eq: "post" }, draft: { ne: true } } }
-      sort: { order: DESC, fields: [frontmatter___date] }
-    ) {
+    allWordpressPost(sort: { order: DESC, fields: date }) {
       edges {
         node {
-          timeToRead
-          fields {
-            slug
-            categorySlug
+          title
+          date
+          excerpt
+          type
+          slug
+          author {
+            name
           }
-          frontmatter {
+          categories {
+            name
+          }
+          featured_media {
+            source_url
             title
-            date
-            category
-            description
           }
+        }
+      }
+    }
+    allWordpressPage {
+      edges {
+        node {
+          id
+          slug
+          title
         }
       }
     }
