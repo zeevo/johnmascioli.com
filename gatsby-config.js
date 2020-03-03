@@ -7,14 +7,14 @@ module.exports = {
   siteMetadata: {
     url,
     siteUrl: url,
-    title: "Zeevo's Starter",
+    title: 'John Mascioli',
     subtitle: '',
     copyright: '© All rights reserved.',
     profilePic: './src/pages/photo.jpg',
     menu: [
       {
         label: 'Twitter',
-        path: 'https://twitter.com/zeevosec',
+        path: 'https://twitter.com/john_mascioli',
         external: true,
       },
       {
@@ -29,10 +29,9 @@ module.exports = {
       },
     ],
     author: {
-      name: "Shane O'Neill",
-      twitter: 'https://twitter.com/zeevosec',
+      name: 'John Mascioli',
+      twitter: 'https://twitter.com/john_mascioli',
     },
-    categories: ['Featured', 'Favorites'],
   },
   plugins: [
     {
@@ -68,7 +67,7 @@ module.exports = {
               })),
             query: `
             {
-              allWordpressPost(limit: 1000, sort: {fields: date, order: DESC}) {
+                allWordpressPost(limit: 1000, sort: {fields: date, order: DESC}, filter: {title: {regex: "/^((?!dummy).)*$/igm"}}) {
                 edges {
                   node {
                     content
@@ -196,7 +195,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-wordpress',
       options: {
-        baseUrl: 'http://ec2-3-15-175-195.us-east-2.compute.amazonaws.com/blog/index.php/',
+        // baseUrl: 'http://ec2-3-15-175-195.us-east-2.compute.amazonaws.com/blog/index.php/',
+        baseUrl: 'http://52.23.188.233/',
         protocol: 'http',
         hostingWPCOM: false,
         useACF: true,

@@ -16,7 +16,10 @@ exports.createPages = ({ graphql, actions }) => {
 
     graphql(`
       {
-        allWordpressPost(sort: { fields: [date] }) {
+        allWordpressPost(
+          sort: { fields: [date] }
+          filter: { title: { regex: "/^((?!dummy).)*$/igm" } }
+        ) {
           edges {
             node {
               id
