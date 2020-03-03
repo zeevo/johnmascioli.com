@@ -8,7 +8,7 @@ module.exports = {
     url,
     siteUrl: url,
     title: 'John Mascioli',
-    subtitle: '',
+    subtitle: 'Your favorite rants on market trends',
     copyright: '© All rights reserved.',
     profilePic: './src/pages/photo.jpg',
     menu: [
